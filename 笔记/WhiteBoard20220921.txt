@@ -1,0 +1,398 @@
+Specification:
+What do we want, how can we solve the problem
+It is an interface between the developer and the customer
+We use a mathematical formal language to write specification
+It is a clear definition of our task
+
+Specify every component
+- Input
+- Output
+- precondition
+- postcondition
+
+Task:
+A car consumes L liters of petrol on a K km long trip 
+(L and K are given by the user). 
+Calculate the consumption of the car (how many liters it consumes on 100 km). 
+Sample input/output:
+   Amount of petrol consumed (liters): 17
+   Length of the trip (km): 200
+input: L, K ∈ ℕ
+output: consume ∈ ℝ
+precondition: K>0
+postcondition:  L
+              _____
+                K
+                __
+                100
+
+L * 100 / K (it is the simplified postondition)
+
+source code
+===========
+namespace CarConsume
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            float l, k;
+            float consume;
+            Console.Write("Please enter the consume: ");
+            l = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Please enter the distance: ");
+            k = Convert.ToInt32(Console.ReadLine());
+
+            consume = l * 100 / k ;
+            Console.WriteLine(consume);
+        }
+    }
+}
+
+
+What is the algoritm?
+steps for problem solving
+basic steps... clear steps...
+
+What are the elements of algorithm?
+- sequence
+- conditional statement/branch
+- loop(s)
+- subprogram (function)
+
+Variables and operators
+=======================
+C# is a strongly typed language!
+Every element has a type!
+Variable definition (declaration)
+
+TYPE name
+int number;
+
+int - integer
+operators:
++
+-
+*
+/ classic divison
+% mod - eucledan divison ()
+^2
+special operators:
+++
+--
+be carful! There is a different between a++ and ++a
+These statements mean 2 statements!
+Compound statements.
+
+a++ means, first use a, after increment it...
+Console.WriteLine(a++);
+first it displays a
+second it increments value of a
+
+++a means, first increment a, after use it...
+Console.WriteLine(++a);
+first it  increments value of a
+second it displays a
+
+source code
+===========
+namespace _20220921_1operators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int a;
+            int b;
+
+            a = 2;
+            Console.WriteLine(++a); //3
+            Console.WriteLine(a);   //3
+            Console.WriteLine(a++); //3
+            Console.WriteLine(a);   //4
+        }
+    }
+}
+
+
+Float type
+float means something like real... it is not real, but it represents real numbers within our
+programs...
+
+operators of float number
++
+-
+*
+/ classic divison
+There is no % mod in the case of float numbers!
+^2
+we can use power with negative exponent and fraction exponents (squer root, etc.)
+The most of math functions are available in Math.Sqrt() or Math.Round() format in C#!
+
+source code
+===========
+namespace _20220921_2float
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            float a;
+            float b;
+            a = 2;
+            b = 4;
+
+            Console.WriteLine(Math.Sqrt(a));
+            Console.WriteLine(Math.Sqrt(b));
+
+            Console.WriteLine(Math.Round(Math.Sqrt(a),2));
+            Console.WriteLine(Math.Sqrt(b));
+
+        }
+    }
+}
+
+char - like character (it is represented by integer... it is a byte... 0..255)
+a,b,c
+A - 65
+a - 97
+Some important ASCII codes:
+09 - tabulator ('\t')
+10 and 13 - Carrige return New line (ENTER) 
+0a 0d  ('\n')
+27 - escape
+32 - SPACE
+48 - 0
+
+Operators? We can use the integer operators...
+
+string
+======
+Text
+Array of chars
+
+Later...
+concatenation: "32" + "12" = "3212"
+- find
+- substring
+- length
+
+bool
+====
+logical type
+the values can be true or false
+
+operators?
+or
+and
+negation
+
+de Morgen rule - how can we negate a logical expression?
+negate the values and change the operator
+negation of   A and B = !A or !B
+
+I would like to check, is there any odd numbers within an array?
+2, 4, 6, 7, 8
+while(number % 2 == 1)
+If I would like to find an odd number, I need to use a condition with even number...
+I must negate the original logic expression
+
+integer is a simple type
+char also is a simple type
+string is a compound type
+
+What can we do, if we need a set of integers?
+=> We can use an array!
+Array is an indexed set of variables!
+X is an array, that can stores 10 numbers.
+The array identifies every element/item
+
+1. element - X[0]
+2. element - X[1]
+3. element - X[2]
+...
+10. element- X[9]
+We will use 2 languages:
+- algorithm description languaga / structogram - natural thinking, the first means 1
+- C# programming language - the first item of array is the 0th!
+
+
+
+Task A:
+Read a number from the keyboard, if it is odd, please displays the number,
+and if it is even, please display the number +1.
+=>conditional statement
+
+source code
+===========
+namespace _20220921_4cond
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Please enter a number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            if (number % 2 != 0)
+                Console.WriteLine(number);
+            else
+                Console.WriteLine(number + 1);
+        }
+    }
+}
+
+If we would like to compare 2 variables:
+== are these equal?
+!= are these not equal?
+These are also logical operations! The result will be true or false!
+
+When do we need a curve brackets? ({})
+The conditional statement and loops can contain only one
+statement!
+If we would like to use more than one statement, we need to use {}
+
+
+Task B:
+Displays the odd numbers what less than 100.
+- conditional statement
+- loop
+FOR loop is a very simple loop type, there is a predefined conditional part.
+This conditional part contains 3 'statements'
+- starting value (i=0)
+- limit (i<100)
+- steps (1 => i=i+1 same as i++)
+
+source code
+===========
+namespace _20220921_5loop
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            for(int i=0; i<100; i++)
+                if(i % 2 ==1)
+                   Console.WriteLine(i);
+        }
+    }
+}
+
+
+We can solve it without a conditional statement. (and we got a quickre code)
+
+namespace _20220921_5b
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 1; i < 100; i=i+2)
+                Console.WriteLine(i);
+        }
+    }
+}
+
+Euclidean division:
+division with remainder
+We focus on remainder instead of the result
+ 3 % 2 = 1
+If you divide a number with 2 the rremainder can be 0 or 1
+If you divide a number with 3 the rremainder can be 0, 1, 2
+If you divide a number with 7 the rremainder can be 0, 1, 2, 3, 4, 5, 6
+If you divide a number with n the rremainder can be 0..n-1
+ 
+Task C:
+Create a C# program that fill a 100 elements array with the first 100 numbers.
+
+source code
+namespace _20220921_6array
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[100];
+
+            for (int i = 0; i < numbers.Length; i++)
+                { 
+                numbers[i] = i;
+                Console.WriteLine(numbers[i]);
+                }
+        }
+    }
+}
+
+
+Task D:
+Create a C# program that fill a 100 elements array with the first 100 numbers 
+that can be divided by 3.
+
+Be careful!
+We need to take a difference between index and value!
+
+source code
+===========
+namespace _20220921_7div3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[100];
+            for (int i = 0; i < numbers.Length; i++)
+                 numbers[i] = i * 3;
+            
+            for (int i = 0; i < numbers.Length; i++)
+                Console.WriteLine(numbers[i]);
+        }
+    }
+}
+
+The possibel WRONG solution:
+namespace _20220921_7div3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[100];
+            for (int i = 0; i < numbers.Length; i++)
+              if(i % 3 == 0) 
+                 numbers[i] = i ;
+        }
+    }
+}
+In the case of this solution the array contains only 33 items! Not 100!
+
+Task E:
+Create a C# program that fill a 100 elements array.
+If the index is odd, the value of element is index*2
+If the index is even, the value of element is index/2
+source code
+namespace _20220921_8odd
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[100];
+
+            for(int i = 0; i < numbers.Length; i++)
+                if(i % 2 == 1)
+                    numbers[i] = i * 2;
+                else
+                    numbers[i] = i / 2;
+
+            for (int i = 0; i < numbers.Length; i++)
+                Console.WriteLine(numbers[i]);
+        }
+    }
+}
+
+Task F:
+Create a C# program that fill a 100 elements array
+- if the number less than 50 and even it will be index * 3
+- if the number greater than 49 and divisable by 3 index * 7
+- other cases index
+We need embeded conditional statements!
